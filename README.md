@@ -1,12 +1,43 @@
-# React + Vite
+# RAWG Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+&#x20;
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Descripción
 
-## Expanding the ESLint configuration
+**RAWG Browser** es una aplicación web minimalista creada con **React** que se conecta a la API de **RAWG** para explorar y descubrir videojuegos de manera intuitiva. Ofrece filtros avanzados para consola, género y autor, además de secciones de novedades y una lista de favoritos.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Demo
+
+Visita la versión en producción en Vercel:
+
+[Click acá](https://rawg-browser.vercel.app/)
+
+---
+
+## Características
+
+* **Búsqueda y filtros**: Busca juegos por título y filtra por consola, género o autor.
+* **Novedades**: Consulta los lanzamientos más recientes.
+* **Favoritos**: Marca tus juegos preferidos para acceder rápidamente.
+* **Interfaz minimalista**: Diseño limpio con enfoque en la experiencia de usuario.
+
+---
+
+## Tecnologías
+
+* **Framework**: React
+* **Rutas**: React Router
+* **Estilos**: Tailwind CSS
+* **Estado Global**: Context API + `useReducer`
+* **Llamadas API**: Custom Hooks con `useEffect`
+
+---
+
+
+## Autor
+
+**Facu Pompa**
+
+---
