@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { fetchGameDetails, fetchGameScreenshots, fetchGameTrailers } from '../services/rawg';
 import { useNavigate } from 'react-router-dom';
 
+
 export default function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState(null);
