@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import { useI18n } from '../i18n.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export default function GameCard({ title, image, genre, date, platforms, id }) {
   const { t } = useI18n();
   const [showTooltip, setShowTooltip] = useState(false);
+  const navigate = useNavigate();
 
   const filteredPlatforms = platforms.filter(
     p => p.toLowerCase() !== 'linux' && p.toLowerCase() !== 'macos'
@@ -15,7 +17,7 @@ export default function GameCard({ title, image, genre, date, platforms, id }) {
 
   const handleDetailsClick = (e) => {
     e.preventDefault();
-    window.open(`/game/${id}`, '_blank');
+    navigate(`/game/${id}`);
   };
 
   return (

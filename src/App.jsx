@@ -6,7 +6,6 @@ import GameGrid from './components/GameGrid';
 import Footer from './components/Footer';
 import { fetchGamesList, fetchGameDetails, fetchGameScreenshots } from './services/rawg';
 import { useI18n } from './i18n.jsx';
-import ContactForm from './components/ContactForm';
 
 export default function App() {
   const [populares, setPopulares] = useState([]);
@@ -72,10 +71,6 @@ export default function App() {
         <section id="tendencias" className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 my-12">
           <h2 className="text-3xl font-bold mb-4">{t('tendencias')}</h2>
           <GameGrid games={tendencias} onShowDetails={handleShowDetails} />
-        </section>
-        
-        <section id="contacto" className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 my-12">
-          <ContactForm />
         </section>
       </main>
       <Footer />

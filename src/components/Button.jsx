@@ -7,6 +7,7 @@ export default function Button({ children, onClick, type = "button" }) {
       onClick={onClick}
       className="
         px-6 py-2
+        cursor-pointer
         rounded-full
         bg-primary
         text-white

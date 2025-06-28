@@ -3,7 +3,6 @@ export const translations = {
     home: 'Inicio',
     novedades: 'Novedades',
     tendencias: 'Tendencias',
-    contacto: 'Contacto',
     searchPlaceholder: 'Buscar juego…',
     search: 'Buscar',
     populares: 'Más Populares',
@@ -14,13 +13,13 @@ export const translations = {
     discover: 'Descubre tu próximo juego favorito',
     heroDesc: 'Explora reseñas, trailers y más de los últimos lanzamientos y clásicos.',
     seeNews: 'Ver novedades',
-    copyright: '© 2025 Facundo Pompa. Todos los derechos reservados.'
+    copyright: 'Cuidado: este sitio puede causar adicción a los videojuegos.',
+    back: 'Volver'
   },
   en: {
     home: 'Home',
     novedades: 'News',
     tendencias: 'Trending',
-    contacto: 'Contact',
     searchPlaceholder: 'Search game…',
     search: 'Search',
     populares: 'Most Popular',
@@ -31,6 +30,7 @@ export const translations = {
     discover: 'Discover your next favorite game',
     heroDesc: 'Explore reviews, trailers and more from the latest releases and classics.',
     seeNews: 'See news',
-    copyright: '© 2025 Facundo Pompa. All rights reserved.'
+    copyright: 'Warning: This site may cause video game addiction.',
+    back: 'Back'
   }
 };
