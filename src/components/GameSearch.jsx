@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { fetchGamesList } from '../services/rawg';
+import { useI18n } from '../i18n.jsx';
 
 export default function GameSearch({ onResults }) {
   const [term, setTerm] = useState('');
+  const { t } = useI18n();
 
   const handleSearch = async e => {
     e.preventDefault();
@@ -16,12 +18,9 @@ export default function GameSearch({ onResults }) {
         type="text"
         value={term}
         onChange={e => setTerm(e.target.value)}
-        placeholder="Buscar juego…"
+        placeholder={t('searchPlaceholder')}
         className="w-full md:w-1/2 px-4 py-2 rounded-full bg-neutral-800 text-neutral-100 focus:outline-none"
       />
-      <button type="submit" className="ml-4 px-4 py-2 bg-primary rounded-full text-white">
-        Buscar
-      </button>
     </form>
   );
 }

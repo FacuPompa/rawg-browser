@@ -1,0 +1,116 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import { fetchGameDetails, fetchGameScreenshots, fetchGameTrailers } from '../services/rawg';
+
+export default function GameDetail() {
+  const { id } = useParams();
+  const [game, setGame] = useState(null);
+  const [screenshots, setScreenshots] = useState([]);
+  const [trailers, setTrailers] = useState([]);
+
+  useEffect(() => {
+    fetchGameDetails(id).then(setGame);
+    fetchGameScreenshots(id).then(setScreenshots);
+    fetchGameTrailers(id).then(setTrailers);
+  }, [id]);
+
+  if (!game) {
+    return (
+      <div className="min-h-screen bg-neutral-900 text-neutral-100 flex items-center justify-center">
+        <span>Cargando...</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-neutral-900 text-neutral-100 min-h-screen">
+      <Navbar/>
+      <div
+        className="relative w-full h-[45vh] flex items-end"
+        style={{
+          backgroundImage: `url(${game.background_image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'top center',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
+        <div className="relative z-10 p-8">
+          <h1 className="text-4xl md:text-5xl font-bold drop-shadow-lg mb-2">{game.name}</h1>
+          <div className="flex flex-wrap gap-4 items-center">
+            <span className="bg-primary/80 text-white text-sm px-3 py-1 rounded-full font-semibold">
+              {game.genres?.map(g => g.name).join(', ')}
+            </span>
+            <span className="bg-neutral-800 text-neutral-300 text-sm px-3 py-1 rounded-full">
+              {game.released}
+            </span>
+            <span className="bg-neutral-800 text-yellow-400 text-sm px-3 py-1 rounded-full">
+              ★ {game.rating} / 5
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <main className="max-w-5xl mx-auto px-4 py-12 flex flex-col gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Tráiler</h2>
+            {trailers.length > 0 && trailers[0].data && trailers[0].data.max ? (
+              <video
+                src={trailers[0].data.max}
+                poster={trailers[0].preview}
+                controls
+                className="w-full rounded-lg shadow-lg max-h-80 bg-black"
+              />
+            ) : (
+              <div className="text-neutral-400">No hay tráiler disponible.</div>
+            )}
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Screenshots</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {screenshots.map(s => (
+                <div
+                  key={s.id}
+                  className="overflow-hidden rounded-lg shadow group cursor-pointer transition-transform duration-300 hover:scale-110"
+                >
+                  <img
+                    src={s.image}
+                    alt="Screenshot"
+                    className="w-64 h-32 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-bold mb-2">Descripción</h2>
+          <div
+            className="text-neutral-300 text-base leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: game.description || 'Sin descripción.' }}
+          />
+        </div>
+
+        {game.platforms && (
+          <div>
+            <h2 className="text-2xl font-bold mb-2">Plataformas</h2>
+            <div className="flex flex-wrap gap-2">
+              {game.platforms.map(p => (
+                <span
+                  key={p.platform.id}
+                  className="bg-neutral-800 text-neutral-200 text-xs px-3 py-1 rounded-full"
+                >
+                  {p.platform.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </main>
+      <Footer />
+    </div>
+  );
+}
