@@ -21,7 +21,7 @@ export default function App() {
     setSelectedGame({ ...game, screenshots });
   };
 
-  useEffect(() => {  //filtros para mostrar
+  useEffect(() => {
     const today = new Date().toISOString().split('T')[0];
     const sixMonthsAgo = new Date(Date.now() - 15552000000).toISOString().split('T')[0];
 
