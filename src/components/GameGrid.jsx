@@ -16,15 +16,7 @@ export default function GameGrid({ games }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {games.map(game => (
-        <GameCard
-          key={game.id}
-          id={game.id}
-          title={game.name}
-          image={game.background_image}
-          genre={game.genres[0]?.name}
-          date={new Date(game.released).toLocaleDateString()}
-          platforms={game.platforms?.map(p => p.platform.name) || []}
-        />
+        <GameCard key={game.id} id={game.id} title={game.name} image={game.background_image} genre={game.genres[0]?.name} date={new Date(game.released).toLocaleDateString()} platforms={game.platforms?.map(p => p.platform.name) || []} />
       ))}
     </div>
   );

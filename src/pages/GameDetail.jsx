@@ -40,11 +40,7 @@ export default function GameDetail() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
         <div className="relative z-10 w-full">
           <div className="max-w-5xl mx-auto px-4 pb-3 pt-8 text-left">
-          <button
-            onClick={() => navigate('/')}
-            aria-label="Volver al inicio"
-            className="mb-4 p-2 rounded-full bg-neutral-800 cursor-pointer hover:bg-neutral-700 transition-colors"
-          >
+          <button onClick={() => navigate('/')} aria-label="Volver al inicio" className="mb-4 p-2 rounded-full bg-neutral-800 cursor-pointer hover:bg-neutral-700 transition-colors" >
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
               <path d="M15 19l-7-7 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -69,12 +65,7 @@ export default function GameDetail() {
           <div>
             <h2 className="text-2xl font-bold mb-2">Tráiler</h2>
             {trailers.length > 0 && trailers[0].data && trailers[0].data.max ? (
-              <video
-                src={trailers[0].data.max}
-                poster={trailers[0].preview}
-                controls
-                className="w-full rounded-lg shadow-lg max-h-80 bg-black"
-              />
+              <video src={trailers[0].data.max} poster={trailers[0].preview} controls className="w-full rounded-lg shadow-lg max-h-80 bg-black" />
             ) : (
               <div className="text-neutral-400">No hay tráiler disponible.</div>
             )}
@@ -83,15 +74,8 @@ export default function GameDetail() {
             <h2 className="text-2xl font-bold mb-2">Screenshots</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {screenshots.map(s => (
-                <div
-                  key={s.id}
-                  className="overflow-hidden rounded-lg shadow group cursor-pointer transition-transform duration-300 hover:scale-110"
-                >
-                  <img
-                    src={s.image}
-                    alt="Screenshot"
-                    className="w-64 h-32 object-cover"
-                  />
+                <div key={s.id} className="overflow-hidden rounded-lg shadow group cursor-pointer transition-transform duration-300 hover:scale-110" >
+                  <img src={s.image} alt="Screenshot" className="w-64 h-32 object-cover" />
                 </div>
               ))}
             </div>
@@ -111,10 +95,7 @@ export default function GameDetail() {
             <h2 className="text-2xl font-bold mb-2">Plataformas</h2>
             <div className="flex flex-wrap gap-2">
               {game.platforms.map(p => (
-                <span
-                  key={p.platform.id}
-                  className="bg-neutral-800 text-neutral-200 text-xs px-3 py-1 rounded-full"
-                >
+                <span key={p.platform.id} className="bg-neutral-800 text-neutral-200 text-xs px-3 py-1 rounded-full" >
                   {p.platform.name}
                 </span>
               ))}

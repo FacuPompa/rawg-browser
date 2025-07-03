@@ -6,6 +6,8 @@ import GameGrid from './components/GameGrid';
 import Footer from './components/Footer';
 import { fetchGamesList, fetchGameDetails, fetchGameScreenshots } from './services/rawg';
 import { useI18n } from './i18n.jsx';
+import { useLocation } from 'react-router-dom';
+import 'keen-slider/keen-slider.min.css';
 
 export default function App() {
   const [populares, setPopulares] = useState([]);
@@ -14,6 +16,7 @@ export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const { t, lang, setLang } = useI18n();
   const [setSelectedGame] = useState(null);
+  const location = useLocation();
 
   const handleShowDetails = async (gameId) => {
     const game = await fetchGameDetails(gameId);
@@ -41,6 +44,19 @@ export default function App() {
     };
     return () => { window.handleLangChange = null; };
   }, [lang, setLang]);
+
+  useEffect(() => {
+    const scrollTo = location.state?.scrollTo;
+    if (scrollTo) {
+      const section = document.getElementById(scrollTo);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  }, [location.state?.scrollTo]);
+
 
   return (
     <div className="bg-neutral-900 text-neutral-100 min-h-screen transition-all">
