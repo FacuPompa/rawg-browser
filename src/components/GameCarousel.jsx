@@ -45,7 +45,7 @@ export default function GameCarousel() {
     <div ref={sliderRef} className="keen-slider w-full h-full">
       {games.map((game) => (
         <div key={game.id} className="keen-slider__slide">
-          <img src={game.background_image} alt={game.name} onError={handleImageError} className="w-full h-full object-cover" />
+          <img src={game.background_image} alt={game.name} onError={handleImageError} className="w-full h-full object-cover opacity-60" />
         </div>
       ))}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent" />
