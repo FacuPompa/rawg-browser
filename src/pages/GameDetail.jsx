@@ -31,12 +31,7 @@ export default function GameDetail() {
       <Navbar/>
       <div
         className="relative w-full h-[45vh] flex items-end"
-        style={{
-          backgroundImage: `url(${game.background_image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'top center',
-        }}
-      >
+        style={{ backgroundImage: `url(${game.background_image})`, backgroundSize: 'cover', backgroundPosition: 'top center', }} >
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
         <div className="relative z-10 w-full">
           <div className="max-w-5xl mx-auto px-4 pb-3 pt-8 text-left">
@@ -84,10 +79,7 @@ export default function GameDetail() {
 
         <div>
           <h2 className="text-2xl font-bold mb-2">Descripción</h2>
-          <div
-            className="text-neutral-300 text-base leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: game.description || 'Sin descripción.' }}
-          />
+          <div className="text-neutral-300 text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: game.description || 'Sin descripción.' }} />
         </div>
 
         {game.platforms && (

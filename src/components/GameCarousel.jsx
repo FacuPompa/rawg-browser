@@ -26,14 +26,12 @@ export default function GameCarousel() {
           dates: `${fromDate},${today}`,
           exclude_additions: true,
         });
-
         setGames(data);
       } catch (err) {
         console.error('Error fetching games for carousel:', err);
         setHasError(true);
       }
     }
-
     loadGames();
   }, []);
 
