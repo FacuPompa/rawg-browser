@@ -79,16 +79,21 @@ export default function App() {
           <GameGrid games={populares} onShowDetails={handleShowDetails} />
         </section>
 
-        <section id="novedades" className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 my-12">
-          <h2 className="text-3xl font-bold mb-4">{t('latest')}</h2>
-          <GameGrid games={novedades} onShowDetails={handleShowDetails} />
-        </section>
-
         <section id="tendencias" className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 my-12">
           <h2 className="text-3xl font-bold mb-4">{t('tendencias')}</h2>
           <GameGrid games={tendencias} onShowDetails={handleShowDetails} />
         </section>
+
+        <section id="novedades" className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 my-12">
+          <h2 className="text-3xl font-bold mb-4">{t('latest')}</h2>
+          <GameGrid games={novedades} onShowDetails={handleShowDetails} />
+        </section>
+        
       </main>
+        <button className="fixed bottom-4 right-4 md:hidden px-3 py-1 rounded-full text-sm font-semibold cursor-pointer border border-neutral-700 transition-colors bg-neutral-700 text-white hover:bg-neutral-600 z-50" onClick={() => setLang(lang === 'es' ? 'en' : 'es')} type="button">
+        {lang === 'es' ? 'ES' : 'EN'}
+        </button>
+  
       <Footer />
     </div>
   );

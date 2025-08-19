@@ -12,7 +12,7 @@ export default function GameCard({ title, image, genre, date, platforms, id }) {
   const { user, favorites, addFavorite, removeFavorite } = useUser();
 
   const filteredPlatforms = platforms.filter(
-    p => p.toLowerCase() !== 'linux' && p.toLowerCase() !== 'macos'
+    p => typeof p === 'string' && p.toLowerCase() !== 'linux' && p.toLowerCase() !== 'macos'
   );
 
   const mainPlatforms = filteredPlatforms.slice(0, 3);
